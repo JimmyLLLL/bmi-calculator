@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jimmyllll.github.io/bmi-calculator/sitemap.xml
+Sitemap: https://jimmywithfiona.com/bmi-calculator/sitemap.xml

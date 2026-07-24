@@ -8,7 +8,7 @@
     <link rel="dns-prefetch" href="https://api.counterapi.dev">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0b0f">
-    <meta name="description" content="Free BMI Calculator — calculate your Body Mass Index instantly. Enter height and weight to check if you're underweight, normal, overweight, or obese. Metric and imperial supported.">
+    <meta name="description" content="Free BMI Calculator. Check if you're at a healthy weight. Supports metric and imperial units. Instant results.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jimmyllll.github.io/bmi-calculator/">
 
@@ -16,19 +16,19 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BMI Calculator">
     <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="BMI Calculator — Free Body Mass Index Calculator | Metric & Imperial">
-    <meta property="og:description" content="Free BMI Calculator — calculate your Body Mass Index instantly. Enter height and weight to check if you're underweight, normal, overweight, or obese. Metric and imperial supported.">
+    <meta property="og:title" content="BMI Calculator — Free Body Mass Index Tool">
+    <meta property="og:description" content="Free BMI Calculator. Check if you're at a healthy weight. Supports metric and imperial units. Instant results.">
     <meta property="og:url" content="https://jimmyllll.github.io/bmi-calculator/">
     <meta property="og:image" content="https://jimmyllll.github.io/bmi-calculator/favicon.svg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="BMI Calculator — Free Body Mass Index Calculator | Metric & Imperial">
-    <meta name="twitter:description" content="Free BMI Calculator — calculate your Body Mass Index instantly. Enter height and weight to check if you're underweight, normal, overweight, or obese. Metric and imperial supported.">
+    <meta name="twitter:title" content="BMI Calculator — Free Body Mass Index Tool">
+    <meta name="twitter:description" content="Free BMI Calculator. Check if you're at a healthy weight. Supports metric and imperial units. Instant results.">
     <meta name="twitter:image" content="https://jimmyllll.github.io/bmi-calculator/favicon.svg">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1840337371416691" crossorigin="anonymous"></script>
-    <title>BMI Calculator — Free Body Mass Index Calculator | Metric & Imperial</title>
+    <title>BMI Calculator — Free Body Mass Index Tool</title>
     <link rel="stylesheet" href="css/style.css">
     <script type="application/ld+json">
     {
@@ -53,6 +53,51 @@
       ]
     }
     </script>
+<style>
+
+    /* UX fixes: touch targets, font sizes */
+    @media (max-width: 768px) {
+        .navbar .nav-links a {
+            padding: 0.5rem 0.3rem;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar { padding: 0.5rem 0.75rem; }
+        .navbar .brand { font-size: 0.95rem; }
+        .navbar .nav-links { gap: 0.3rem; }
+        input[type="text"], input[type="number"], select, textarea {
+            font-size: 16px !important;
+        }
+        .tab { min-height: 44px; display: flex; align-items: center; }
+        .preset-btn { min-height: 44px; }
+        .unit-toggle button { min-height: 44px; padding: 0.5rem 0.75rem; }
+        .btn { min-height: 44px; }
+        .legend-item, .outlet { min-height: 44px; }
+    }
+    /* Scroll to top button */
+    .scroll-top {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--accent, #4f8cff);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: none;
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        transition: opacity 0.3s;
+    }
+    .scroll-top.visible { display: flex; }
+
+    </style>
 </head>
 <body>
 <nav class="navbar">
@@ -79,26 +124,26 @@
         <div id="metricInputs">
             <div class="form-row">
                 <label>Height</label>
-                <input type="number" id="heightCm" value="170" min="50" max="300" oninput="calculate()" aria-label="Height in centimeters">
+                <input type="number" id="heightCm" value="170" min="50" max="300" oninput="calculate()" aria-label="Height in centimeters" inputmode="decimal">
                 <span style="font-size:0.85rem;color:var(--text-dim);">cm</span>
             </div>
             <div class="form-row">
                 <label>Weight</label>
-                <input type="number" id="weightKg" value="65" min="10" max="500" oninput="calculate()" aria-label="Weight in kilograms">
+                <input type="number" id="weightKg" value="65" min="10" max="500" oninput="calculate()" aria-label="Weight in kilograms" inputmode="decimal">
                 <span style="font-size:0.85rem;color:var(--text-dim);">kg</span>
             </div>
         </div>
         <div id="imperialInputs" style="display:none;">
             <div class="form-row">
                 <label>Height</label>
-                <input type="number" id="heightFt" value="5" min="1" max="9" oninput="calculate()" style="flex:0.5;" aria-label="Height in feet">
+                <input type="number" id="heightFt" value="5" min="1" max="9" oninput="calculate()" style="flex:0.5;" aria-label="Height in feet" inputmode="decimal">
                 <span style="font-size:0.85rem;color:var(--text-dim);">ft</span>
-                <input type="number" id="heightIn" value="7" min="0" max="11" oninput="calculate()" style="flex:0.5;" aria-label="Height in inches">
+                <input type="number" id="heightIn" value="7" min="0" max="11" oninput="calculate()" style="flex:0.5;" aria-label="Height in inches" inputmode="decimal">
                 <span style="font-size:0.85rem;color:var(--text-dim);">in</span>
             </div>
             <div class="form-row">
                 <label>Weight</label>
-                <input type="number" id="weightLb" value="143" min="20" max="1000" oninput="calculate()" aria-label="Weight in pounds">
+                <input type="number" id="weightLb" value="143" min="20" max="1000" oninput="calculate()" aria-label="Weight in pounds" inputmode="decimal">
                 <span style="font-size:0.85rem;color:var(--text-dim);">lb</span>
             </div>
         </div>

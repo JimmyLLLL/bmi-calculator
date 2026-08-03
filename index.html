@@ -415,21 +415,66 @@ localStorage.setItem('bm_dismissed','1');
 (function(){
 var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
 if(!lang.startsWith('zh'))return;
-var ZH={"About":"关于","Privacy":"隐私","Contact":"联系","Home":"首页","Generate":"生成","Calculate":"计算","Convert":"转换","Download":"下载","Copy":"复制","Clear":"清空","Reset":"重置","Upload":"上传","Start":"开始","Stop":"停止","Search":"搜索","Views":"浏览","Visitors":"访客","More":"更多","Free online tools":"免费在线工具","Result":"结果","Size":"尺寸","Color":"颜色","Width":"宽度","Height":"高度","Format":"格式","Quality":"质量","Options":"选项","Settings":"设置","Loading...":"加载中…","Processing...":"处理中…","Click to upload":"点击上传","or drag & drop":"或拖拽到此处","No results found":"未找到结果","Try again":"重试","How to Play":"玩法说明","How to Use":"使用方法","FAQ":"常见问题","Free":"免费","Private":"隐私","No signup":"无需注册","No download":"无需下载","No upload":"不上传","Works on mobile":"手机可用","100% Free":"完全免费","Related Tools":"相关工具","BMI Calculator":"BMI 计算器","Calculate BMI":"计算 BMI","Calculate your Body Mass Index":"计算你的身体质量指数","check if you're at a healthy weight":"查看体重是否健康","Metric (kg/cm)":"公制 (kg/cm)","Imperial (lb/ft)":"英制 (lb/ft)","Your BMI":"你的 BMI","Enter your details":"输入你的信息","Underweight":"偏瘦","Healthy":"健康","Overweight":"偏胖","Obese":"肥胖","Healthy weight":"健康体重","Great! Your BMI is in the healthy range":"不错！你的 BMI 在健康范围内","Maintain your current lifestyle and stay active":"保持当前生活方式和运动习惯","Regular exercise and a balanced diet can help":"规律运动和均衡饮食有帮助","We recommend consulting a healthcare professional":"建议咨询医疗专业人士","for personalized guidance":"获取个性化指导","BMI Calculator — Free Online":"BMI 计算器 — 免费在线","BMI (Body Mass Index) is a measure":"BMI（身体质量指数）是体脂衡量指标","based on height and weight":"基于身高和体重","It applies to adult men and women":"适用于成年男女","Free online BMI calculator":"免费在线 BMI 计算器","Check your healthy weight range":"查看你的健康体重范围","Metric and imperial support":"支持公制和英制"};
+var ZH={
+"Calculate":"计算","About":"关于","Privacy":"隐私","Contact":"联系","Home":"首页",
+"📊 BMI Calculator":"📊 BMI 计算器","🏠 Home":"🏠 首页","👁️ Views":"👁️ 浏览","👤 Visitors":"👤 访客",
+"BMI Calculator":"BMI 计算器",
+"Calculate your Body Mass Index — check if you're at a healthy weight.":"计算你的身体质量指数 — 查看体重是否健康。",
+"Units":"单位","Metric (kg/cm)":"公制 (kg/cm)","Imperial (lb/ft)":"英制 (lb/ft)",
+"Height":"身高","Weight":"体重","Calculate BMI":"计算 BMI",
+"Your BMI":"你的 BMI","Enter your details":"输入你的信息",
+"Underweight":"偏瘦","Normal":"正常","Overweight":"偏胖","Obese":"肥胖",
+"BMI Calculator — Free Online Tool":"BMI 计算器 — 免费在线工具",
+"Our free BMI Calculator helps you determine your Body Mass Index instantly. Enter your height and weight, and we'll calculate your BMI and show you which category you fall into — underweight, normal, overweight, or obese. Supports both metric (kg/cm) and imperial (lb/ft) units.":"我们的免费 BMI 计算器帮你即时计算身体质量指数。输入身高和体重，我们会计算你的 BMI 并显示你所属的类别 — 偏瘦、正常、偏胖或肥胖。支持公制 (kg/cm) 和英制 (lb/ft) 单位。",
+"What is BMI?":"什么是 BMI？",
+"Body Mass Index (BMI) is a widely used screening tool that uses your height and weight to estimate body fatness. It's a quick and simple way to check if your weight is in a healthy range for your height. While BMI doesn't directly measure body fat, it correlates well with more direct measures for most people.":"身体质量指数 (BMI) 是一种广泛使用的筛查工具，通过身高和体重估算体脂。这是一种快速简单的方法，可检查你的体重是否在身高对应的健康范围内。虽然 BMI 不能直接测量体脂，但对大多数人来说与更直接的测量方法相关性良好。",
+"BMI Categories":"BMI 分类",
+"— BMI below 18.5. May indicate insufficient nutrition.":"— BMI 低于 18.5。可能表明营养不足。",
+"Normal weight":"正常体重",
+"— BMI 18.5 to 24.9. Healthy weight range.":"— BMI 18.5 至 24.9。健康体重范围。",
+"— BMI 25 to 29.9. Increased health risks.":"— BMI 25 至 29.9。健康风险增加。",
+"— BMI 30 or above. Significantly increased health risks.":"— BMI 30 或以上。健康风险显著增加。",
+"BMI Formula":"BMI 公式",
+"Metric:":"公制：","BMI = weight (kg) ÷ height (m)²":"BMI = 体重 (kg) ÷ 身高 (m)²",
+"Imperial:":"英制：","BMI = 703 × weight (lb) ÷ height (in)²":"BMI = 703 × 体重 (lb) ÷ 身高 (in)²",
+"Limitations of BMI":"BMI 的局限性",
+"BMI is a useful screening tool but has limitations. It doesn't account for muscle mass, bone density, overall body composition, or fat distribution. Athletes with high muscle mass may have a high BMI but low body fat. Always consult a healthcare professional for personalized health advice.":"BMI 是一种有用的筛查工具，但也有局限性。它不考虑肌肉量、骨密度、整体身体成分或脂肪分布。肌肉量高的运动员可能 BMI 偏高但体脂偏低。请始终咨询医疗专业人士获取个性化健康建议。",
+"Healthy Weight Tips":"健康体重建议",
+"Eat a balanced diet rich in fruits, vegetables, and whole grains":"饮食均衡，多吃水果、蔬菜和全谷物",
+"Aim for at least 150 minutes of moderate exercise per week":"每周至少进行 150 分钟中等强度运动",
+"Stay hydrated and limit sugary drinks":"保持水分，少喝含糖饮料",
+"Get adequate sleep (7-9 hours for adults)":"保证充足睡眠（成人 7-9 小时）",
+"Consult your doctor before starting any weight loss program":"开始任何减肥计划前请咨询医生",
+"Disclaimer: This BMI calculator is for informational purposes only and is not a substitute for professional medical advice.":"免责声明：此 BMI 计算器仅供参考，不能替代专业医疗建议。",
+"BMI Calculator © 2026 · Free health tool · For informational purposes only":"BMI 计算器 © 2026 · 免费健康工具 · 仅供参考",
+"More:":"更多：","Related Tools:":"相关工具：",
+"Normal Weight":"正常体重",
+"Your BMI suggests you may be underweight. Consider consulting a nutritionist about healthy ways to gain weight.":"你的 BMI 提示可能偏瘦。建议咨询营养师了解健康增重方法。",
+"Great! Your BMI is in the healthy range. Maintain your current lifestyle and stay active.":"不错！你的 BMI 在健康范围内。保持当前生活方式和运动习惯。",
+"Your BMI suggests you're slightly overweight. Regular exercise and a balanced diet can help reach a healthier weight.":"你的 BMI 提示略微偏胖。规律运动和均衡饮食有助于达到更健康的体重。",
+"Your BMI indicates obesity. We recommend consulting a healthcare professional for personalized guidance.":"你的 BMI 提示肥胖。建议咨询医疗专业人士获取个性化指导。",
+"⭐ Bookmark this tool":"⭐ 收藏此工具",
+"Quick access for next time — press Ctrl+D":"下次快速访问 — 按 Ctrl+D",
+"Got it":"知道了",
+"Back to top":"回到顶部"
+};
 function walk(node){
 if(node.nodeType===3){
-var t=node.textContent;
-for(var en in ZH){
-if(t.indexOf(en)>=0){
-node.textContent=t.replace(en,ZH[en]);
-}
-}
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
 }else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
 for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
 }
 }
 walk(document.body);
 document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
 })();
 </script>
 <!-- /I18N-FULL -->

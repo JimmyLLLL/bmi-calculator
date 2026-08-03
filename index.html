@@ -177,6 +177,17 @@ h1{animation:coolFadeUp .6s ease both}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JimmyWithFiona","url":"https://jimmywithfiona.com/","logo":"https://jimmywithfiona.com/og.png","description":"Free online tools, games, and daily content","sameAs":["https://github.com/JimmyLLLL"]}</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jimmywithfiona.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://jimmywithfiona.com/calculators/"},{"@type":"ListItem","position":3,"name":"Bmi Calculator","item":"https://jimmywithfiona.com/bmi-calculator/"}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BMI Calculator","url":"https://jimmywithfiona.com/bmi-calculator/","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web Browser)","description":"Calculate your Body Mass Index and healthy weight range","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"JimmyWithFiona","url":"https://jimmywithfiona.com/"}}</script>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-XXXXXXXXXX');
+</script>
+<!-- /GA4 -->
 </head>
 <body>
 <div class="cool-progress" id="coolProgress"></div>
@@ -373,5 +384,54 @@ if(b)b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smoo
 })();
 </script>
 <!-- /COOL-LAYER:JS -->
+<!-- BOOKMARK-PROMPT -->
+<script>
+(function(){
+var shown=false;
+function showBookmarkHint(){
+if(shown)return;shown=true;
+var d=document.createElement('div');
+d.id='bm-hint';
+d.style.cssText='position:fixed;bottom:80px;right:20px;background:#161922;border:1px solid #2d3340;border-radius:12px;padding:1rem 1.2rem;max-width:260px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.4);font-size:.82rem;color:#e8eaf0;font-family:sans-serif;transition:opacity .3s,transform .3s;opacity:0;transform:translateY(10px)';
+d.innerHTML='<div style="font-weight:700;margin-bottom:.3rem;">⭐ Bookmark this tool</div><div style="color:#7a8190;font-size:.75rem;margin-bottom:.6rem;">Quick access for next time — press Ctrl+D</div><button id="bm-close" style="background:#4f8cff;color:#fff;border:none;border-radius:6px;padding:.3rem .8rem;font-size:.72rem;cursor:pointer">Got it</button>';
+document.body.appendChild(d);
+setTimeout(function(){{d.style.opacity='1';d.style.transform='translateY(0)';}},100);
+document.getElementById('bm-close').onclick=function(){{d.style.opacity='0';d.style.transform='translateY(10px)';setTimeout(function(){{d.remove()}},300)}};
+}
+var interactions=0;
+function checkEngagement(){
+interactions++;
+if(interactions>=3&&!localStorage.getItem('bm_dismissed')){
+showBookmarkHint();
+localStorage.setItem('bm_dismissed','1');
+}
+}
+['click','keydown','touchstart'].forEach(function(e){document.addEventListener(e,checkEngagement,{once:false,passive:true})});
+})();
+</script>
+<!-- /BOOKMARK-PROMPT -->
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"About":"关于","Privacy":"隐私","Contact":"联系","Home":"首页","Generate":"生成","Calculate":"计算","Convert":"转换","Download":"下载","Copy":"复制","Clear":"清空","Reset":"重置","Upload":"上传","Start":"开始","Stop":"停止","Search":"搜索","Views":"浏览","Visitors":"访客","More":"更多","Free online tools":"免费在线工具","Result":"结果","Size":"尺寸","Color":"颜色","Width":"宽度","Height":"高度","Format":"格式","Quality":"质量","Options":"选项","Settings":"设置","Loading...":"加载中…","Processing...":"处理中…","Click to upload":"点击上传","or drag & drop":"或拖拽到此处","No results found":"未找到结果","Try again":"重试","How to Play":"玩法说明","How to Use":"使用方法","FAQ":"常见问题","Free":"免费","Private":"隐私","No signup":"无需注册","No download":"无需下载","No upload":"不上传","Works on mobile":"手机可用","100% Free":"完全免费","Related Tools":"相关工具","BMI Calculator":"BMI 计算器","Calculate BMI":"计算 BMI","Calculate your Body Mass Index":"计算你的身体质量指数","check if you're at a healthy weight":"查看体重是否健康","Metric (kg/cm)":"公制 (kg/cm)","Imperial (lb/ft)":"英制 (lb/ft)","Your BMI":"你的 BMI","Enter your details":"输入你的信息","Underweight":"偏瘦","Healthy":"健康","Overweight":"偏胖","Obese":"肥胖","Healthy weight":"健康体重","Great! Your BMI is in the healthy range":"不错！你的 BMI 在健康范围内","Maintain your current lifestyle and stay active":"保持当前生活方式和运动习惯","Regular exercise and a balanced diet can help":"规律运动和均衡饮食有帮助","We recommend consulting a healthcare professional":"建议咨询医疗专业人士","for personalized guidance":"获取个性化指导","BMI Calculator — Free Online":"BMI 计算器 — 免费在线","BMI (Body Mass Index) is a measure":"BMI（身体质量指数）是体脂衡量指标","based on height and weight":"基于身高和体重","It applies to adult men and women":"适用于成年男女","Free online BMI calculator":"免费在线 BMI 计算器","Check your healthy weight range":"查看你的健康体重范围","Metric and imperial support":"支持公制和英制"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent;
+for(var en in ZH){
+if(t.indexOf(en)>=0){
+node.textContent=t.replace(en,ZH[en]);
+}
+}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>

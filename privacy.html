@@ -174,5 +174,35 @@
     <div style="margin-top:0.6rem;font-size:0.72rem;opacity:0.6;">More: <a href="https://jimmywithfiona.com/">JimmyWithFiona — Home</a> · <a href="https://jimmywithfiona.com/brick-breaker/">Brick Breaker Game</a> · <a href="https://jimmywithfiona.com/mortgage-calculator/">Mortgage Calculator</a> · <a href="https://jimmywithfiona.com/fun-tests/">FunTests — Quizzes</a> · <a href="https://jimmywithfiona.com/wheel-spinner/">Wheel Spinner</a> · <a href="https://jimmywithfiona.com/game-2048/">2048 Game</a></div>
 </footer>
 <script defer src="js/counter.js"></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"📊 BMI Calculator":"📊 BMI 计算器","Calculate":"计算","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","Privacy Policy":"隐私政策","Last updated: July 23, 2026":"最后更新：2026 年 7 月 23 日","BMI Calculator processes all data locally in your browser. We do not collect or store your health data.":"BMI 计算器在您的浏览器本地处理所有数据。我们不收集或存储您的健康数据。","1. Data":"1. 数据","All calculations happen in your browser. Your height and weight are never transmitted to any server.":"所有计算均在您的浏览器中完成。您的身高和体重绝不会传输到任何服务器。","2. Third-Party Services":"2. 第三方服务","GitHub Pages — hosting":"GitHub Pages — 托管","Counter API — anonymous view counting":"计数器 API — 匿名浏览量统计","3. Advertising":"3. 广告","May show Google AdSense ads. Manage at":"可能展示 Google AdSense 广告。管理请访问","Google Ad Settings":"Google 广告设置","4. Medical Disclaimer":"4. 医疗免责声明","This tool is not a medical device and does not provide medical advice.":"本工具不是医疗设备，不提供医疗建议。","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客数","© 2026 BMI Calculator ·":"© 2026 BMI 计算器 ·","Home":"首页","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","FunTests — Quizzes":"FunTests — 测验","Wheel Spinner":"转盘","2048 Game":"2048 游戏"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
